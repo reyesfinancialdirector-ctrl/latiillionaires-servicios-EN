@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | Latillionaires</title>
+  <link rel="shortcut icon" href="https://storage.googleapis.com/msgsndr/48hz6AHqaU6NMstFnHTl/media/687ecf0ed5539623c7e2a6ff.png" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      color: #fff;
+      font-family: 'Poppins', Arial, sans-serif;
+    }
+
+    .custom-navbar {
+      background-color: rgba(0, 0, 0, 0.18);
+      backdrop-filter: blur(4px);
+      padding-top: 0 !important;
+      padding-bottom: 0;
+      z-index: 1000;
+    }
+
+    .custom-navbar .nav-link,
+    .custom-navbar .navbar-brand {
+      color: white;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .custom-navbar .nav-link:hover,
+    .custom-navbar .dropdown-item:hover {
+      color: #ebcc67;
+    }
+
+    .custom-navbar .dropdown-menu {
+      background-color: rgba(0, 0, 0, 0.55);
+      border: none;
+    }
+
+    .dropdown-transparente .dropdown-item {
+      color: #fff;
+    }
+
+    .btn-gold-peq {
+      background: radial-gradient(50% 100% at center, #b8860b 0%, #d4af37 60%, #f5e79e 100%);
+      color: #fff;
+      text-transform: uppercase;
+      padding: 0.5em 2.2em;
+      margin-left: 20px;
+      border: none;
+      border-radius: 48px;
+      box-shadow:
+        inset 0 4px 6px rgba(255, 255, 255, 0.3),
+        inset 0 -4px 6px rgba(0, 0, 0, 0.3),
+        0 4px 10px rgba(0, 0, 0, 0.3);
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+    }
+
+    .btn-gold-peq:hover {
+      transform: translateY(2px);
+      box-shadow:
+        inset 0 4px 6px rgba(255, 255, 255, 0.3),
+        inset 0 -4px 6px rgba(0, 0, 0, 0.3),
+        0 6px 14px rgba(0, 0, 0, 0.4);
+    }
+
+    .flag-icon {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 3px;
+      padding: 1px;
+      margin-left: 30px;
+    }
+
+    .services-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 110px 16px 50px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .services-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('https://assets.cdn.filesafe.space/PUVUfiYjWWOwqkFaSWkQ/media/69b0b6ff3443f376847c3ff6.png');
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: min(1300px, 100vw);
+      opacity: 0.9;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .services-wrap {
+      position: relative;
+      z-index: 2;
+      width: min(96vw, 1240px);
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      align-items: center;
+      gap: clamp(22px, 4vw, 52px);
+    }
+
+    .services-copy h1 {
+      margin: 0 0 20px;
+      font-size: clamp(1.6rem, 4vw, 3.6rem);
+      font-weight: 200;
+      line-height: 0.98;
+      letter-spacing: -0.01em;
+      text-transform: none;
+    }
+
+    .services-copy p {
+      margin: 0;
+      font-size: clamp(1.2rem, 1.45vw, 2rem);
+      line-height: 1.13;
+      max-width: 560px;
+    }
+
+    .services-visual {
+      position: relative;
+      width: min(100%, 860px);
+      margin: 0 auto;
+      aspect-ratio: 16 / 10;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .services-card {
+      position: absolute;
+      inset: 35% 0 0 0;
+      background: #efefef;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .services-team {
+      position: relative;
+      z-index: 2;
+      width: min(100%, 860px);
+      height: auto;
+      object-fit: contain;
+      object-position: center bottom;
+      filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.55));
+    }
+
+    .service-placeholder {
+      min-height: 56vh;
+      display: grid;
+      place-items: center;
+      border-top: 1px solid rgba(255, 215, 0, 0.22);
+      background: #030303;
+      padding: 56px 20px;
+      text-align: center;
+    }
+
+    .service-placeholder h2 {
+      margin: 0;
+      font-size: clamp(1.6rem, 2.4vw, 2.5rem);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .why-choose {
+      background: #000;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 18px;
+    }
+
+    .why-choose-wrap {
+      width: min(96vw, 1280px);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: clamp(26px, 4.2vw, 72px);
+      align-items: center;
+    }
+
+    .why-title {
+      margin: 0;
+      color: #f4f4f4;
+      font-size: clamp(2.6rem, 8.2vw, 6rem);
+      line-height: 0.98;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+    }
+
+    .why-title .pill {
+      display: inline-block;
+      padding: 0.02em 0.28em 0.08em;
+      margin-top: 0.05em;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #120f05 0%, #b98809 45%, #d4a61d 100%);
+    }
+
+    .why-list {
+      display: grid;
+      gap: 30px;
+    }
+
+    .why-item {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .why-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      background: #f3f3f3;
+      color: #1a1a1a;
+      display: grid;
+      place-items: center;
+      font-size: 26px;
+      line-height: 1;
+      font-weight: 300;
+    }
+
+    .why-item h3 {
+      margin: 0 0 8px;
+      color: #e1b126;
+      font-size: clamp(1.2rem, 2.2vw, 2rem);
+      font-weight: 500;
+      line-height: 1.06;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .why-item p {
+      margin: 0;
+      color: #e6e6e6;
+      font-size: clamp(1rem, 1.2vw, 1.8rem);
+      line-height: 1.28;
+      font-weight: 600;
+    }
+
+    #our-products {
+      position: relative;
+      background: #000;
+      color: #fff;
+      padding: 96px 18px 110px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    #our-products::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('https://assets.cdn.filesafe.space/PUVUfiYjWWOwqkFaSWkQ/media/69b0c01f3443f331017dcdae.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.95;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    #our-products .pd-wrap {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #our-products .titulo-productos {
+      margin: 0 0 34px;
+      text-align: center;
+      color: #fff;
+      font-size: clamp(1.6rem, 4vw, 3.4rem);
+      font-weight: 200;
+      letter-spacing: -0.01em;
+      text-transform: none;
+      line-height: 0.98;
+    }
+
+    #our-products .pd-shell {
+      position: relative;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 64px;
+      box-sizing: border-box;
+    }
+
+    #our-products .pd-viewport {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    #our-products .pd-track {
+      display: flex;
+      gap: 34px;
+      transition: transform 420ms ease;
+      will-change: transform;
+    }
+
+    #our-products .pd-card {
+      flex: 0 0 calc((100% - 68px) / 3);
+      min-width: 280px;
+      border-radius: 30px;
+      overflow: hidden;
+      background: #ececec;
+      color: #050505;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 22px 46px rgba(0, 0, 0, 0.36);
+    }
+
+    #our-products .pd-img {
+      width: 100%;
+      height: 228px;
+      object-fit: cover;
+      display: block;
+    }
+
+    #our-products .pd-body {
+      padding: 20px 26px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 280px;
+    }
+
+    #our-products .pd-title {
+      margin: 0;
+      text-align: center;
+      color: #000;
+      text-transform: uppercase;
+      font-size: clamp(1.7rem, 1.8vw, 2.1rem);
+      line-height: 1.05;
+      font-weight: 300;
+    }
+
+    #our-products .pd-text {
+      margin: 0;
+      color: #111;
+      line-height: 1.25;
+      font-size: clamp(1rem, 1.15vw, 1.65rem);
+      font-weight: 500;
+      flex: 1;
+    }
+
+    #our-products .pd-cta {
+      margin: auto auto 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      min-width: 178px;
+      border-radius: 999px;
+      background: #050505;
+      color: #e1b126;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      font-size: clamp(0.95rem, 1vw, 1.3rem);
+    }
+
+    #our-products .pd-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 58px;
+      height: 58px;
+      border: none;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.45);
+      color: #fff;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+      backdrop-filter: blur(2px);
+    }
+
+    #our-products .pd-btn i {
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    #our-products .pd-btn.prev { left: 0; }
+    #our-products .pd-btn.next { right: 0; }
+
+    #what-is-your-motivation {
+      background: #000;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 96px 18px 110px;
+    }
+
+    #what-is-your-motivation .encuesta-wrapper {
+      width: min(96vw, 1260px);
+      margin: 0 auto;
+      display: flex;
+      gap: clamp(24px, 4vw, 70px);
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    #what-is-your-motivation .encuesta-left {
+      flex: 1 1 46%;
+      display: flex;
+      justify-content: center;
+    }
+
+    #what-is-your-motivation .encuesta-photo-inner {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      min-height: 430px;
+    }
+
+    #what-is-your-motivation .encuesta-photo-inner img {
+      width: 100%;
+      max-width: 500px;
+      display: block;
+    }
+
+    #what-is-your-motivation .encuesta-right {
+      flex: 1 1 46%;
+      display: flex;
+      justify-content: center;
+    }
+
+    #what-is-your-motivation .poll-card {
+      width: 100%;
+      max-width: 560px;
+      background: #000;
+      border: 6px solid #efc940;
+      border-radius: 22px;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    #what-is-your-motivation .poll-title {
+      background: #fff;
+      color: #111;
+      margin: 0;
+      padding: 22px 22px 16px;
+      font-size: clamp(1.7rem, 2.1vw, 2.45rem);
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    #what-is-your-motivation .poll-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 16px 18px 0;
+    }
+
+    #what-is-your-motivation .poll-option {
+      background: linear-gradient(90deg, #111216 0%, #0d0e12 100%);
+      border-radius: 10px;
+      padding: 16px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.12s ease;
+      font-size: clamp(1rem, 1.08vw, 1.45rem);
+      color: #d8d8d8;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    #what-is-your-motivation .poll-option:hover {
+      transform: translateY(-1px);
+      border-color: rgba(239, 201, 64, 0.45);
+    }
+
+    #what-is-your-motivation .poll-option.selected {
+      background: linear-gradient(90deg, #1e1500 0%, #3d2b02 52%, #6a4c05 100%);
+      color: #fff;
+      border-color: rgba(239, 201, 64, 0.85);
+    }
+
+    #what-is-your-motivation .poll-label {
+      flex: 1;
+      margin-right: 12px;
+      font-weight: 500;
+    }
+
+    #what-is-your-motivation .poll-percent {
+      font-weight: 700;
+      min-width: 44px;
+      text-align: right;
+      font-size: 14px;
+      opacity: 0.95;
+      color: #efc940;
+    }
+
+    #what-is-your-motivation .poll-footer {
+      padding: 12px 18px 16px;
+      margin: 0;
+      font-size: 12px;
+      text-align: center;
+      color: #d9d9d9;
+    }
+
+    .footer-dorado {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(90deg, #d9b44a 0%, #efd57e 100%);
+      padding: 0 100px 10px 70px;
+      min-height: 100px;
+    }
+
+    .footer-logos img {
+      height: 70px;
+      width: auto;
+      object-fit: contain;
+      margin-right: 24px;
+      padding-top: 2%;
+      padding-bottom: 2%;
+    }
+    .footer-logos .footer-logo-hidden {
+      display: none;
+    }
+    .footer-logos .footer-logo-latillionaires img {
+      height: 88px;
+      margin-right: 0;
+    }
+    .footer-logos a::before,
+    .footer-logos a::after {
+      content: none !important;
+      display: none !important;
+    }
+    .footer-logos a {
+      border: none !important;
+      box-shadow: none !important;
+      text-decoration: none !important;
+      background: transparent !important;
+    }
+
+    .footer-center {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      font-weight: 600;
+      color: #fff;
+      font-size: 1.1rem;
+    }
+
+    .footer-center a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .footer-social a {
+      color: #222;
+      font-size: 2rem;
+      margin-left: 18px;
+    }
+
+    .latillionaires-modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(24, 22, 15, 0.55);
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      overflow-y: auto;
+      box-sizing: border-box;
+      transition: opacity 0.4s;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .latillionaires-modal.show {
+      display: flex;
+      opacity: 1;
+      pointer-events: auto;
+      animation: fadeInModal 0.5s;
+    }
+
+    .latillionaires-modal.hiding {
+      opacity: 0;
+      pointer-events: none;
+      animation: fadeOutModal 0.5s;
+    }
+
+    @keyframes fadeInModal {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeOutModal {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+
+    .latillionaires-modal-content {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 6px 34px rgba(64, 54, 25, 0.18);
+      border: 6px solid #caa552;
+      max-width: 520px;
+      width: 92vw;
+      padding: 32px 26px 38px 26px;
+      position: relative;
+      text-align: center;
+      font-family: 'Poppins', Arial, Helvetica, sans-serif;
+      animation: modalDrop 0.7s cubic-bezier(.18,.89,.32,1.28);
+      transition: transform 0.5s, opacity 0.5s;
+      will-change: transform, opacity;
+    }
+
+    .latillionaires-modal.show .latillionaires-modal-content {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+      transition-delay: 0.1s;
+    }
+
+    .latillionaires-modal.hiding .latillionaires-modal-content {
+      transform: translateY(-60px) scale(0.96);
+      opacity: 0;
+    }
+
+    @keyframes modalDrop {
+      from { transform: translateY(-70px) scale(.98); opacity: 0; }
+      to { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    .latillionaires-modal-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: #232323;
+      color: #fff;
+      border: 2px solid #caa552;
+      width: 36px;
+      height: 36px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 11;
+      box-shadow: 0 1px 6px rgba(40, 40, 60, 0.13);
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+
+    .latillionaires-modal-close:hover {
+      background: #caa552;
+      color: #222;
+    }
+
+    .latillionaires-modal-actions {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .latillionaires-modal-action-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      font-size: 1.13rem;
+      color: #354043;
+      margin-bottom: 0;
+      flex-wrap: wrap;
+    }
+
+    .latillionaires-modal-action-text {
+      font-size: 1.13rem;
+      color: #354043;
+      text-align: center;
+      margin-bottom: 0;
+      margin-top: 10px;
+    }
+
+    .latillionaires-modal-btn {
+      margin: 0 auto;
+      background: #caa552;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.18rem;
+      border: none;
+      border-radius: 18px;
+      padding: 8px 36px;
+      text-decoration: none;
+      box-shadow: 0 1px 8px rgba(40, 40, 40, 0.08);
+      transition: background 0.19s, color 0.19s;
+      display: inline-block;
+      min-width: 120px;
+      text-align: center;
+    }
+
+    .latillionaires-modal-btn:hover {
+      background: #b59234;
+      color: #fff6e0;
+    }
+
+    @media (max-width: 992px) {
+      .custom-navbar .navbar-collapse {
+        background-color: rgba(0, 0, 0, 0.9);
+        border-radius: 8px;
+        padding: 10px 0;
+        margin: 0 15px;
+      }
+
+      .btn-gold-peq {
+        font-size: 1rem;
+        padding: 0.5em 1.5em;
+        margin-left: 0;
+        margin-top: 10px;
+        margin-bottom: 5px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .services-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .services-copy p {
+        max-width: 100%;
+      }
+
+      .services-visual {
+        max-width: 560px;
+        width: 100%;
+        aspect-ratio: 15 / 11;
+      }
+
+      .footer-dorado {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 16px;
+      }
+
+      .footer-logos img {
+        height: 50px;
+        margin-right: 10px;
+        margin-bottom: 8px;
+      }
+
+      .footer-logos .footer-logo-latillionaires img {
+        height: 64px;
+        margin-right: 0;
+      }
+
+      .footer-center {
+        margin: 8px 0;
+      }
+
+      .why-choose {
+        padding: 68px 16px;
+      }
+
+      .why-choose-wrap {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+
+      .why-title {
+        font-size: clamp(2.5rem, 15vw, 4.2rem);
+      }
+
+      .why-item {
+        grid-template-columns: 40px 1fr;
+        gap: 12px;
+      }
+
+      .why-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 22px;
+      }
+
+      #our-products {
+        padding: 82px 16px 98px;
+        align-items: flex-start;
+      }
+
+      #our-products .pd-shell {
+        padding: 0 44px;
+      }
+
+      #our-products .pd-track {
+        gap: 20px;
+      }
+
+      #our-products .pd-card {
+        flex: 0 0 calc((100% - 20px) / 2);
+      }
+
+      #our-products .pd-img {
+        height: 210px;
+      }
+
+      #our-products .pd-body {
+        min-height: 250px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      #our-products .pd-shell {
+        padding: 0 36px;
+      }
+
+      #our-products .pd-card {
+        flex: 0 0 100%;
+      }
+
+      #our-products .pd-img {
+        height: 210px;
+      }
+
+      #our-products .pd-body {
+        min-height: 230px;
+      }
+
+      #our-products .pd-btn {
+        width: 48px;
+        height: 48px;
+      }
+
+      #our-products .pd-btn i {
+        font-size: 22px;
+      }
+
+      #what-is-your-motivation {
+        padding: 76px 16px 92px;
+      }
+
+      #what-is-your-motivation .encuesta-wrapper {
+        gap: 20px;
+      }
+
+      #what-is-your-motivation .encuesta-photo-inner {
+        min-height: 360px;
+      }
+
+      #what-is-your-motivation .poll-title {
+        font-size: clamp(1.4rem, 7vw, 2rem);
+      }
+
+      #what-is-your-motivation .poll-options {
+        padding: 14px 14px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand" href="home_eng.html#section1">
+        <img src="https://storage.googleapis.com/msgsndr/9sXCdMVqMJ0CZ6Il6OQw/media/686bf8fe5375f8f690b902d5.png" alt="Logo" style="height: 60px;">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="https://latillionaires.com/en">HOME</a></li>
+          <li class="nav-item"><span class="nav-link separador"> | </span></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">ABOUT US</a>
+            <ul class="dropdown-menu dropdown-menu-light dropdown-transparente">
+              <li><a class="dropdown-item" href="https://latillionaires.com/en#section2">Our Agents</a></li>
+              <li><a class="dropdown-item" href="https://latillionaires.com/en#section3">Our Team</a></li>
+              <li><a class="dropdown-item" href="https://latillionaires.com/en#section3b">How We Close the Month</a></li>
+              <li><a class="dropdown-item" href="https://latillionaires.com/en#section3a" style="background: radial-gradient(50% 100% at center, #b8860b 0%, #d4af37 60%, #f5e79e 100%); color: #fff;">Join Us</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><span class="nav-link separador"> | </span></li>
+          <li class="nav-item"><a class="nav-link" href="https://latillionaires.com/en#section4">EVENTS</a></li>
+          <li class="nav-item"><span class="nav-link separador"> | </span></li>
+          <li class="nav-item dropdown d-flex align-items-center">
+            <a class="nav-link" href="https://latillionaires.com/services">SERVICES</a>
+            <a class="nav-link dropdown-toggle dropdown-toggle-split ps-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="visually-hidden">Open services submenu</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-light dropdown-transparente">
+              <li><a class="dropdown-item" href="https://latillionaires.com/services#why-choose-us">Why Choose Us</a></li>
+              <li><a class="dropdown-item" href="https://latillionaires.com/services#our-products">Our Products</a></li>
+              <li><a class="dropdown-item" href="https://latillionaires.com/services#what-is-your-motivation">What Is Your Motivation?</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><span class="nav-link separador"> | </span></li>
+          <li class="nav-item"><a class="nav-link" href="https://latillionaires.com/en#section5">JOIN OUR TEAM</a></li>
+          
+          <li class="nav-item">
+            <a href="#" style="text-decoration: none;">
+              <button class="btn-gold-peq" id="portalBtn">PORTAL</button>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="https://latillionaires.com/servicios">
+              <img src="https://flagcdn.com/w20/co.png" alt="EspaÃ±ol" style="height:17px; width:auto;" class="flag-icon">
+              <span style="margin-left:6px;">ES</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="services-hero">
+      <div class="services-wrap">
+        <div class="services-copy">
+          <h1>WHAT WE DO BEST</h1>
+          <p>At Latillionaires, we provide personalized financial solutions for individuals, families, and businesses. Our professional team guides you with expert advice to protect your future and help you reach your financial goals.</p>
+        </div>
+        <div class="services-visual">
+          <div class="services-card" aria-hidden="true"></div>
+          <img class="services-team" src="https://assets.cdn.filesafe.space/PUVUfiYjWWOwqkFaSWkQ/media/69b0b86a96853716027f2e4a.png" alt="Latillionaires Team" draggable="false">
+        </div>
+      </div>
+    </section>
+
+    <section class="why-choose" id="why-choose-us">
+      <div class="why-choose-wrap">
+        <h2 class="why-title">Why<br><span class="pill">choose us?</span></h2>
+
+        <div class="why-list">
+          <article class="why-item">
+            <div class="why-icon" aria-hidden="true">â†—</div>
+            <div>
+              <h3>Personalized guidance</h3>
+              <p>At Latillionaires, we believe every family and every business has unique goals. That is why we provide 100% personalized guidance designed to understand your current situation, your objectives, and your possibilities.</p>
+            </div>
+          </article>
+
+          <article class="why-item">
+            <div class="why-icon" aria-hidden="true">â†—</div>
+            <div>
+              <h3>Comprehensive family protection</h3>
+              <p>Our mission is to help you protect what matters most: your family, your health, your income, and your assets. We build complete strategies that range from life insurance with living benefits to retirement solutions and financial plans.</p>
+            </div>
+          </article>
+
+          <article class="why-item">
+            <div class="why-icon" aria-hidden="true">â†—</div>
+            <div>
+              <h3>Transparency and financial education</h3>
+              <p>We believe education is the foundation of financial freedom. At RFA, we explain every solution with honesty, no fine print, and practical examples.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section id="our-products" aria-label="Our products">
+      <div class="pd-wrap">
+        <h2 class="titulo-productos">Our Products</h2>
+
+        <div class="pd-shell">
+          <button class="pd-btn prev" type="button" aria-label="Previous">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+
+          <div class="pd-viewport" aria-label="Products carousel">
+            <div class="pd-track" id="pdTrackEn">
+              <article class="pd-card">
+                <img class="pd-img" src="https://storage.googleapis.com/msgsndr/PUVUfiYjWWOwqkFaSWkQ/media/69529894fcef1c68bdb928a8.png" alt="Life Insurance">
+                <div class="pd-body">
+                  <h3 class="pd-title">Life Insurance</h3>
+                  <p class="pd-text">
+                    Are you still protecting your family and your finances with an old-style life insurance policy that only pays when you pass away?
+                    Today, there are more complete options that also protect you while you are alive.
+                  </p>
+                  <a class="pd-cta" href="https://www.reyesfinancialagency.com/terms-en-lat" target="_blank">Learn More</a>
+                </div>
+              </article>
+
+              <article class="pd-card">
+                <img class="pd-img" src="https://storage.googleapis.com/msgsndr/PUVUfiYjWWOwqkFaSWkQ/media/69529894ee10475e992c2582.png" alt="Tax-Free Insurance">
+                <div class="pd-body">
+                  <h3 class="pd-title">Tax-Free Insurance</h3>
+                  <p class="pd-text">
+                    Tax-free retirement through an IUL is a smart and effective strategy to build your retirement fund.
+                  </p>
+                  <a class="pd-cta" href="https://www.reyesfinancialagency.com/iul-en-lat" target="_blank">Learn More</a>
+                </div>
+              </article>
+
+              <article class="pd-card">
+                <img class="pd-img" src="https://storage.googleapis.com/msgsndr/PUVUfiYjWWOwqkFaSWkQ/media/69529894e889d3ce3cdcef33.png" alt="IUL for Kids">
+                <div class="pd-body">
+                  <h3 class="pd-title">IUL for Kids</h3>
+                  <p class="pd-text">
+                    Setting up a properly designed IUL for your child at an early age can put them on the fast track to financial success in adulthood.
+                  </p>
+                  <a class="pd-cta" href="https://www.reyesfinancialagency.com/iulforkids-en-lat" target="_blank">Learn More</a>
+                </div>
+              </article>
+
+              <article class="pd-card">
+                <img class="pd-img" src="https://storage.googleapis.com/msgsndr/PUVUfiYjWWOwqkFaSWkQ/media/69529c796c45655573a04035.png" alt="Annuities">
+                <div class="pd-body">
+                  <h3 class="pd-title">Annuities</h3>
+                  <p class="pd-text">
+                    A safe way to protect your money and receive stable income in retirement. At RFA, we help you choose the best option for your financial future.
+                  </p>
+                  <a class="pd-cta" href="https://www.reyesfinancialagency.com/anualidades-en-lat" target="_blank">Learn More</a>
+                </div>
+              </article>
+
+              <article class="pd-card">
+                <img class="pd-img" src="https://storage.googleapis.com/msgsndr/PUVUfiYjWWOwqkFaSWkQ/media/6971644715885ea70463097d.png" alt="Rollovers">
+                <div class="pd-body">
+                  <h3 class="pd-title">Rollovers</h3>
+                  <p class="pd-text">
+                    With professional and personalized guidance, you can take advantage of tax benefits, consolidate accounts, and build a tailored retirement strategy.
+                  </p>
+                  <a class="pd-cta" href="https://www.reyesfinancialagency.com/rollovers-en-lat" target="_blank">Learn More</a>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <button class="pd-btn next" type="button" aria-label="Next">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section id="what-is-your-motivation" aria-label="Motivation poll">
+      <div class="encuesta-wrapper">
+        <div class="encuesta-left">
+          <div class="encuesta-photo-card">
+            <div class="encuesta-photo-inner">
+              <img src="https://assets.cdn.filesafe.space/PUVUfiYjWWOwqkFaSWkQ/media/69b0c61396853772c381b1dc.png" alt="Latillionaires team">
+            </div>
+          </div>
+        </div>
+
+        <div class="encuesta-right">
+          <div class="poll-card">
+            <h2 class="poll-title">What is your primary motivation for attending this training?</h2>
+
+            <div class="poll-options">
+              <div class="poll-option" data-option="1">
+                <span class="poll-label">Personal development</span>
+                <span class="poll-percent">0%</span>
+              </div>
+              <div class="poll-option" data-option="2">
+                <span class="poll-label">Job requirement</span>
+                <span class="poll-percent">0%</span>
+              </div>
+              <div class="poll-option" data-option="3">
+                <span class="poll-label">Interest in the subject matter</span>
+                <span class="poll-percent">0%</span>
+              </div>
+              <div class="poll-option" data-option="4">
+                <span class="poll-label">Company-sponsored training initiative</span>
+                <span class="poll-percent">0%</span>
+              </div>
+            </div>
+
+            <p class="poll-footer">Your profile name will be shared | 0 votes</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-dorado">
+    <div class="footer-logos">
+      <a href="https://www.adrianareyesgroup.com" target="_blank" title="Adriana Reyes Group" class="footer-logo-hidden">
+        <img src="https://storage.googleapis.com/msgsndr/48hz6AHqaU6NMstFnHTl/media/68a7423dd9ba65ad5882b20e.png" alt="Adriana Reyes Group">
+      </a>
+      <a href="https://www.adrianareyesrealty.com" target="_blank" title="Adriana Reyes Realty" class="footer-logo-hidden">
+        <img src="https://storage.googleapis.com/msgsndr/48hz6AHqaU6NMstFnHTl/media/68a7423d5727bdd785970f9e.png" alt="Adriana Reyes Realty">
+      </a>
+      <a href="https://www.reyesfinancialagency.com" target="_blank" title="Reyes Financial Agency" class="footer-logo-hidden">
+        <img src="https://storage.googleapis.com/msgsndr/48hz6AHqaU6NMstFnHTl/media/68a7423de2fbdda1bc3dc7f2.png" alt="Reyes Financial Agency">
+      </a>
+      <a href="https://www.latillionaires.com" target="_blank" title="Latillionaires" class="footer-logo-latillionaires">
+        <img src="https://storage.googleapis.com/msgsndr/48hz6AHqaU6NMstFnHTl/media/68a7423d5f326c5ec2d6969b.png" alt="Latillionaires">
+      </a>
+    </div>
+    <div class="footer-center">
+      <a href="https://adrianareyesgroup.com/privacy-policy" target="_blank">Privacy Policy and Terms of Use</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/AdrianaReyesRealty" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/adrianareyesrealtor" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@adrianareyesrealtor" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.linkedin.com/company/adriana-reyes-realtor" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </footer>
+
+  <!-- MODAL LATILLIONAIRES PORTAL -->
+  <div id="portalModal" class="latillionaires-modal">
+    <div class="latillionaires-modal-content">
+      <button class="latillionaires-modal-close" onclick="closePortalModal()">&times;</button>
+      <img src="https://storage.googleapis.com/msgsndr/48hz6AHqaU6NMstFnHTl/media/687ece807f24c6ef463ba8cb.png" alt="Latillionaires" style="width:140px; margin-bottom:18px;">
+      <h2>Welcome to Latillionaires</h2><br>
+      <p style="font-size: 1.3rem; margin-top:-8px; margin-bottom:36px; color:#41575f;">
+        You are just one step away from transforming your life!
+      </p>
+      <div class="latillionaires-modal-actions">
+        <div class="latillionaires-modal-action-row">
+          <span class="latillionaires-modal-action-text">Do you want to become part of our Latillionaires team?</span>
+          <a href="https://portal.reyesfinancialagency.com/courses/offers/5bee25ef-b18b-42d9-8529-84a1e0b33d60"
+            class="latillionaires-modal-btn"
+            target="_blank">Sign Up!</a>
+        </div>
+        <div class="latillionaires-modal-action-row">
+          <span class="latillionaires-modal-action-text">Are you already a Latillionaire?</span>
+          <a href="https://portal.reyesfinancialagency.com/login"
+            class="latillionaires-modal-btn"
+            target="_blank">Login</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    (function () {
+      const track = document.getElementById("pdTrackEn");
+      if (!track) return;
+
+      const prevBtn = document.querySelector("#our-products .pd-btn.prev");
+      const nextBtn = document.querySelector("#our-products .pd-btn.next");
+      const viewport = document.querySelector("#our-products .pd-viewport");
+
+      let index = 0;
+
+      function cardsPerView() {
+        if (window.matchMedia("(max-width: 700px)").matches) return 1;
+        if (window.matchMedia("(max-width: 1100px)").matches) return 2;
+        return 3;
+      }
+
+      function stepPx() {
+        const first = track.querySelector(".pd-card");
+        if (!first) return 0;
+        const gap = parseFloat(getComputedStyle(track).gap || "0");
+        return first.getBoundingClientRect().width + gap;
+      }
+
+      function maxIndex() {
+        const total = track.querySelectorAll(".pd-card").length;
+        return Math.max(0, total - cardsPerView());
+      }
+
+      function goTo(i) {
+        index = Math.min(Math.max(i, 0), maxIndex());
+        track.style.transform = "translateX(-" + (index * stepPx()) + "px)";
+      }
+
+      function next() {
+        if (index >= maxIndex()) goTo(0);
+        else goTo(index + 1);
+      }
+
+      function prev() {
+        if (index <= 0) goTo(maxIndex());
+        else goTo(index - 1);
+      }
+
+      if (nextBtn) nextBtn.addEventListener("click", next);
+      if (prevBtn) prevBtn.addEventListener("click", prev);
+
+      let startX = 0;
+      let dragging = false;
+
+      if (viewport) {
+        viewport.addEventListener("touchstart", function (e) {
+          dragging = true;
+          startX = e.touches[0].clientX;
+        }, { passive: true });
+
+        viewport.addEventListener("touchend", function (e) {
+          if (!dragging) return;
+          const endX = e.changedTouches && e.changedTouches[0] ? e.changedTouches[0].clientX : startX;
+          const dx = endX - startX;
+          dragging = false;
+          if (Math.abs(dx) < 35) return;
+          if (dx < 0) next();
+          else prev();
+        }, { passive: true });
+      }
+
+      window.addEventListener("resize", function () { goTo(index); });
+      goTo(0);
+    })();
+
+    (function () {
+      const options = document.querySelectorAll('#what-is-your-motivation .poll-option');
+      if (!options.length) return;
+
+      function updatePercentages() {
+        const selected = Array.from(options).filter(function (opt) {
+          return opt.classList.contains('selected');
+        });
+
+        const n = selected.length;
+        const base = n ? Math.floor(100 / n) : 0;
+        const remainder = n ? 100 - base * n : 0;
+
+        options.forEach(function (opt) {
+          const span = opt.querySelector('.poll-percent');
+          if (span) span.textContent = '0%';
+        });
+
+        if (!n) return;
+
+        selected.forEach(function (opt, i) {
+          const span = opt.querySelector('.poll-percent');
+          if (!span) return;
+          const value = base + (i < remainder ? 1 : 0);
+          span.textContent = value + '%';
+        });
+      }
+
+      options.forEach(function (opt) {
+        opt.addEventListener('click', function () {
+          const isSelected = opt.classList.contains('selected');
+          const selectedCount = Array.from(options).filter(function (o) {
+            return o.classList.contains('selected');
+          }).length;
+
+          if (isSelected) {
+            if (selectedCount > 1) opt.classList.remove('selected');
+          } else {
+            opt.classList.add('selected');
+          }
+
+          const newSelectedCount = Array.from(options).filter(function (o) {
+            return o.classList.contains('selected');
+          }).length;
+          if (newSelectedCount === 0) opt.classList.add('selected');
+
+          updatePercentages();
+        });
+      });
+
+      if (options[0]) {
+        options[0].classList.add('selected');
+        updatePercentages();
+      }
+    })();
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const portalBtn = document.getElementById('portalBtn');
+      const portalModal = document.getElementById('portalModal');
+
+      if (!portalBtn || !portalModal) return;
+
+      portalBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        openPortalModal();
+      });
+
+      function openPortalModal() {
+        portalModal.style.display = 'flex';
+        portalModal.classList.remove('hiding');
+        setTimeout(() => {
+          portalModal.classList.add('show');
+        }, 10);
+      }
+
+      function closePortalModal() {
+        portalModal.classList.remove('show');
+      }
+
+      document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape') closePortalModal();
+      });
+
+      window.closePortalModal = function() {
+        portalModal.classList.remove('show');
+        portalModal.classList.add('hiding');
+        setTimeout(() => {
+          portalModal.classList.remove('hiding');
+          portalModal.style.display = 'none';
+        }, 500);
+      };
+
+      portalModal.addEventListener('click', function(e) {
+        if (e.target === this) {
+          closePortalModal();
+        }
+      });
+    });
+
+  </script>
+</body>
+</html>
